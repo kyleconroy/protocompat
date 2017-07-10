@@ -1,0 +1,2 @@
+all:
+	gazelle -external vendored
