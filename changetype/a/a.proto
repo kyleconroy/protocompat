@@ -1,6 +1,0 @@
-syntax = "proto3";
-package changetypea;
-
-message Foo {
-  string bar = 1;
-}

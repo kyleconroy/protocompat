@@ -1,8 +1,0 @@
-syntax = "proto3";
-package addfieldb;
-
-message Foo {
-  string bar = 1;
-  string bat = 2;
-}
-

@@ -1,0 +1,14 @@
+syntax = "proto3";
+package one;
+
+message ChangeName {
+  string bat = 1;
+}
+
+message ChangeType {
+  string bar = 1;
+}
+
+message AddField {
+  string bar = 1;
+}

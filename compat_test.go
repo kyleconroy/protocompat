@@ -15,13 +15,13 @@ func check(a, b proto.Message) error {
 	return proto.Unmarshal(data, b)
 }
 
-func AssertCompatible(t *testing.T, a, b proto.Message) {
+func assertCompatible(t *testing.T, a, b proto.Message) {
 	if err := check(a, b); err != nil {
 		t.Errorf("expected messages to be compatible; %s", err)
 	}
 }
 
-func AssertIncompatible(t *testing.T, a, b proto.Message) {
+func assertIncompatible(t *testing.T, a, b proto.Message) {
 	if err := check(a, b); err == nil {
 		t.Error("expected messages to be incompatible, but no error")
 	}

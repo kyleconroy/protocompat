@@ -1,6 +1,0 @@
-syntax = "proto3";
-package changetypeb;
-
-message Foo {
-  int64 bar = 1;
-}
