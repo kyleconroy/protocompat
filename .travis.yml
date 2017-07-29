@@ -1,6 +1,10 @@
 language: go
 go_import_path: github.com/kyleconroy/protocompat
 
+cache:
+  directories:
+    - $HOME/.cache/bazel
+
 os: linux
 dist: trusty
 sudo: required
