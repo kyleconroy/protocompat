@@ -1,22 +1,14 @@
-dist: trusty
 language: go
-addons:
-  apt:
-    sources:
-    - sourceline: 'deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8'
-      key_url: 'https://bazel.build/bazel-release.pub.gpg'
-    packages:
-    - openjdk-8-jdk
-    - bazel
-install: echo '{Fast, Correct} - Choose two'
+go_import_path: github.com/kyleconroy/protocompat
+
+os: linux
+dist: trusty
+sudo: required
+
+before_script:
+- wget "https://storage.googleapis.com/bazel-apt/pool/jdk1.8/b/bazel/bazel_0.5.2_amd64.deb"
+- sudo dpkg --force-all -i bazel_0.5.2_amd64.deb
+
 script:
-  - |
-    bazel \
-      --output_base=$HOME/.cache/bazel \
-      --batch \
-      --host_jvm_args=-Xmx500m \
-      --host_jvm_args=-Xms500m \
-      test \
-      --test_output=errors \
-      --experimental_repository_cache="$HOME/.cache/bazel_repository_cache" \
-      //...
+- bazel build //...
+- bazel test --test_arg="-test.short" //...
