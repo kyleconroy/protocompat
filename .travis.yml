@@ -9,4 +9,14 @@ addons:
     - openjdk-8-jdk
     - bazel
 install: echo 'Install'
-script: bazel test ...
+script:
+  - |
+    bazel \
+      --output_base=$HOME/.cache/bazel \
+      --batch \
+      --host_jvm_args=-Xmx500m \
+      --host_jvm_args=-Xms500m \
+      test \
+      --experimental_repository_cache="$HOME/.bazel_repository_cache" \
+      --local_resources=400,1,1.0 \
+      //...
