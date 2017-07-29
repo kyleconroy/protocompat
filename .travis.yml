@@ -8,7 +8,7 @@ addons:
     packages:
     - openjdk-8-jdk
     - bazel
-install: echo 'Install'
+install: echo 'No install step needed'
 script:
   - |
     bazel \
@@ -17,6 +17,7 @@ script:
       --host_jvm_args=-Xmx500m \
       --host_jvm_args=-Xms500m \
       test \
+      --test_output=errors \
       --experimental_repository_cache="$HOME/.bazel_repository_cache" \
       --local_resources=400,1,1.0 \
       //...
