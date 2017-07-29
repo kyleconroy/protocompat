@@ -7,10 +7,10 @@ Buffer schema.
 
 - Messages
   - [x] Change a field type
-  - [ ] Change a field name
-  - [ ] Change a field tag
+  - [x] Change a field name
+  - [x] Change a field tag
   - [x] Add a field
-  - [ ] Remove a field
+  - [x] Remove a field
   - [x] Change a message name
 - Enumerations
 - Unions

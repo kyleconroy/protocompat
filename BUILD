@@ -8,8 +8,10 @@ go_test(
     srcs = [
         "addfield_test.go",
         "changename_test.go",
+        "changetag_test.go",
         "changetype_test.go",
         "compat_test.go",
+        "removefield_test.go",
     ],
     deps = [
         "//one:go_default_library",

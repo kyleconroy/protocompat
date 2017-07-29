@@ -1,16 +1,24 @@
 syntax = "proto3";
 package two;
 
+message AddField {
+  string bar = 1;
+  string bat = 2;
+}
+
 message ChangeNombre {
   string bat = 1;
+}
+
+message ChangeTag {
+  string bar = 2;
 }
 
 message ChangeType {
   int64 bar = 1;
 }
 
-message AddField {
+message RemoveField {
   string bar = 1;
-  string bat = 2;
 }
 
