@@ -8,7 +8,7 @@ addons:
     packages:
     - openjdk-8-jdk
     - bazel
-install: echo 'No install step needed'
+install: echo '{Fast, Correct} - Choose two'
 script:
   - |
     bazel \
