@@ -3,7 +3,7 @@ go_import_path: github.com/kyleconroy/protocompat
 
 cache:
   directories:
-    - $HOME/.cache/bazel
+    - $HOME/.bazel_repository_cache
 
 os: linux
 dist: trusty
@@ -14,5 +14,5 @@ before_script:
 - sudo dpkg --force-all -i bazel_0.5.2_amd64.deb
 
 script:
-- bazel build //...
+- bazel build --experimental_repository_cache="$HOME/.bazel_repository_cache" //...
 - bazel test --test_arg="-test.short" //...
