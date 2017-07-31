@@ -7,7 +7,7 @@ before_script:
 - wget "https://storage.googleapis.com/bazel-apt/pool/jdk1.8/b/bazel/bazel_0.5.3_amd64.deb"
 - sudo dpkg --force-all -i bazel_0.5.3_amd64.deb
 script:
-- bazel --batch --bazelrc=.test-bazelrc test --experimental_repository_cache="$HOME/.bzrepos" --test_arg="-test.short" //...
+- bazel --batch --bazelrc=.test-bazelrc test --experimental_repository_cache="$HOME/.bzrepos" --noshow_progress --noshow_loading_progress --test_output=errors --test_arg="-test.short" //...
 cache:
   directories:
     - $HOME/.bzrepos
