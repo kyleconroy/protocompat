@@ -1,0 +1,9 @@
+startup --host_jvm_args=-Dbazel.DigestFunction=SHA1
+build --spawn_strategy=remote
+build --remote_rest_cache=REPLACE_THIS:http://server-address:port/cache
+# Bazel currently doesn't support remote caching in combination with workers.
+# These two lines override the default strategy for Javac and Closure
+# actions, so that they are also remotely cached.
+# Follow https://github.com/bazelbuild/bazel/issues/3027 for more details:
+build --strategy=Javac=remote
+build --strategy=Closure=remote
