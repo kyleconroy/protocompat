@@ -1,16 +1,13 @@
+os: linux
+dist: trusty
+sudo: required
 language: go
 go_import_path: github.com/kyleconroy/protocompat
+before_script:
+- wget "https://storage.googleapis.com/bazel-apt/pool/jdk1.8/b/bazel/bazel_0.5.3_amd64.deb"
+- sudo dpkg --force-all -i bazel_0.5.3_amd64.deb
+script:
+- bazel --batch --bazelrc=.test-bazelrc test --experimental_repository_cache="$HOME/.bzrepos" --test_arg="-test.short" //...
 cache:
   directories:
     - $HOME/.bzrepos
-addons:
-  apt:
-    sources:
-    - sourceline: 'deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8'
-      key_url: 'https://bazel.build/bazel-release.pub.gpg'
-    packages:
-    - bazel
-os: linux
-dist: trusty
-script:
-- bazel --batch --bazelrc=.test-bazelrc test --experimental_repository_cache="$HOME/.bzrepos" --test_arg="-test.short" //...
