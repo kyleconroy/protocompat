@@ -4,7 +4,6 @@ go_import_path: github.com/kyleconroy/protocompat
 cache:
   directories:
     - $HOME/.bzrepos
-    - $HOME/.bzobase
 
 os: linux
 dist: trusty
@@ -15,4 +14,4 @@ before_script:
 - sudo dpkg --force-all -i bazel_0.5.2_amd64.deb
 
 script:
-- bazel --batch --output_base=$HOME/.bzobase test --experimental_repository_cache="$HOME/.bzrepos" --test_arg="-test.short" //...
+- bazel --batch test --experimental_repository_cache="$HOME/.bzrepos" --remote_rest_cache=https://remote.rest.stackmachine.com/cache --test_arg="-test.short" //...
